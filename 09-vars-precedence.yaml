@@ -2,13 +2,15 @@
   hosts: mongodb
   vars:
     NAME: Kavitha-play
-  # vars_files:
-  # - variable.yaml
+  vars_files:
+  - variable.yaml
   vars_prompt:
   - name: NAME
     prompt: Please enter Trainer Name
     private: false
   tasks:
   - name: variable at task level
+    vars :
+      NAME: kavitha-task
     ansible.builtin.debug:
       msg: "Trainer name is: {{NAME}}"
